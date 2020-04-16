@@ -1,6 +1,6 @@
 const dateFormat = require('dateformat');
 
-let msgs = new Array();
+let msgs = [];
 
 exports.apiChat = function (req, res, obj) {
     if (req.pathname.endsWith("/list")) {
@@ -14,4 +14,4 @@ exports.apiChat = function (req, res, obj) {
         msgs.push(obj);
     }
 
-}
+};

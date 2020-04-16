@@ -10,4 +10,4 @@ exports.apiDenVTydnu = function (req, res, obj) {
     }
     obj.den = DNY_V_TYDNU[dt.getDay()];
     obj.datum = dateFormat(dt, "dd.mm.yyyy");
-}
+};

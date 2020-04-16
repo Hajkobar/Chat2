@@ -68,9 +68,9 @@
 
         function posliZpravu() {
 
-            let m = document.getElementById("zpravy");
+            let m = document.getElementById("zprava").value;
             let url = HOST+"/chat/add?msg="+m;
-          alert(url);//tohle je tu pouze abych věděla jesli mi stránka opravdu vkládá zprávu do "m"... nevkládá
+          alert(url);//tohle je tu pouze abych věděla jesli mi stránka opravdu vkládá zprávu do proměné "m"... nevkládá
           fetch(url).then(function (response) {
                 response.text().then(function (text) {
                     let obj = JSON.parse(text);
