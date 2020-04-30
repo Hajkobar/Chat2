@@ -59,7 +59,7 @@
                     let obj = JSON.parse(text);
                     let s = "";
                     for (let o of obj.messages) { //cyklus pres vsechny prvky vlastnosti messages
-                        s = s + o.time + " " + o.message + "<br>";
+                        s =  o.nickname + " "+ o.time + "- " + "<b>" + o.message + "</b>" +"<br>" + s ;
                     }
                     document.getElementById("zpravy").innerHTML = s;
                 });
@@ -69,8 +69,9 @@
         function posliZpravu() {
 
             let m = document.getElementById("zprava").value;
-            let url = HOST+"/chat/add?msg="+m;
-          alert(url);//tohle je tu pouze abych věděla jesli mi stránka opravdu vkládá zprávu do proměné "m"... nevkládá
+            document.getElementById("zprava").value = "";
+            let n = document.getElementById("nick").value;
+            let url = `${HOST}/chat/add?msg=${m}&nick=${n}`
           fetch(url).then(function (response) {
                 response.text().then(function (text) {
                     let obj = JSON.parse(text);
@@ -87,7 +88,12 @@
 Dnes je <span id="den">...</span> <span id="datum">...</span>. Čas na serveru je <span id="cas">...</span>.
 <br><br>
 
-<input type=text; id="zprava"> <input type="button" value="send" onclick="posliZpravu()">
+<p> Přezdívka: <input type=text; id="nick"></p>
+<p> Zpráva: <input type=text; id="zprava"> </p>
+<input type="button" value="send" onclick="posliZpravu()">
+
+<br>
+<br>
 
 <div id="zpravy">...</div>
 </body>
