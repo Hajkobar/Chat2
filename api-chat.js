@@ -8,7 +8,6 @@ if (fs.existsSync(MSGS_FILE)) {
     msgs = JSON.parse(fs.readFileSync(MSGS_FILE));
 }
 
-
 exports.apiChat = function (req, res, obj) {
     if (req.pathname.endsWith("/list")) {
         obj.messages = msgs;
